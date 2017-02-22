@@ -22,9 +22,11 @@ To:
 <config id="Go" name="GO" value="go-or-gopherjs"/>
 ```
 
-/Applications/LiteIDE.app/Contents/Resources/liteenv
+Then, in `/Applications/LiteIDE.app/Contents/Resources/liteenv`:
 
+```
 cp system.env js.env
+```
 
 Add:
 
@@ -33,5 +35,7 @@ MYGOARCH=js
 ```
 
 (TODO: GOARCH vs MYGOARCH, see comment in main.go)
+
+Now you can just switch to the `js` environment inside LiteIDE when you are doing GopherJS development.
 
 
