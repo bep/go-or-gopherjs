@@ -34,7 +34,7 @@ Add:
 MYGOARCH=js
 ```
 
-(TODO: GOARCH vs MYGOARCH, see comment in main.go)
+TODO: GOARCH vs MYGOARCH, see https://github.com/bep/go-or-gopherjs/issues/1
 
 Now you can just switch to the `js` environment inside LiteIDE when you are doing GopherJS development.
 
