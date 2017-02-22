@@ -16,11 +16,10 @@ func main() {
 
 	goCommand := "go"
 
-	// TODO(bep) I thought I should be clever and use the existing GOARCH
-	// env variable, but that seems to fail with gopherjs test
-	// I will create an issue on the gopherjs issue tracker.
-	if os.Getenv("MYGOARCH") == "js" {
+	if os.Getenv("GOARCH") == "js" {
 		goCommand = "gopherjs"
+		// TODO(bep) See https://github.com/bep/go-or-gopherjs/issues/1
+		os.Setenv("GOARCH", "")
 	}
 
 	cmd := exec.Command(goCommand, os.Args[1:]...)

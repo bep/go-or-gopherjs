@@ -1,6 +1,6 @@
 # go-or-gopherjs
 
-A CLI wrapper invoking `go` or `gopherjs` based on an environment variable.
+A CLI wrapper invoking `go` or `gopherjs` based on `GOARCH=js`.
 
 Simplest way of installing:
 
@@ -28,13 +28,11 @@ Then, in `/Applications/LiteIDE.app/Contents/Resources/liteenv`:
 cp system.env js.env
 ```
 
-Add:
+Uncomment `GOARCH` and modify to:
 
 ```
-MYGOARCH=js
+GOARCH=js
 ```
-
-TODO: GOARCH vs MYGOARCH, see https://github.com/bep/go-or-gopherjs/issues/1
 
 Now you can just switch to the `js` environment inside LiteIDE when you are doing GopherJS development.
 
