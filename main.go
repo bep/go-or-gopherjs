@@ -29,7 +29,8 @@ func main() {
 		os.Setenv("GOARCH", "")
 	}
 
-	cmd := exec.Command(goCommand, removeIncompatibleFlags(goCommand, os.Args[1:])...)
+	f := removeIncompatibleFlags(goCommand, os.Args[1:])
+	cmd := exec.Command(goCommand, f...)
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
@@ -57,7 +58,14 @@ func removeIncompatibleFlags(command string, args []string) []string {
 	}
 	var newArgs []string
 	for i, arg := range args {
+		add := false
+		if strings.Contains(arg, "/") {
+			add = true
+		}
 		if i == 0 || strings.Contains(gopherJSFlags, arg) {
+			add = true
+		}
+		if add {
 			newArgs = append(newArgs, arg)
 		}
 	}
